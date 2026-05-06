@@ -1,0 +1,73 @@
+{
+  "repo": "copper-rel-canary-yard",
+  "language": "Solidity",
+  "category": "Reliability",
+  "goal": "Develop a Solidity command-oriented project for canary scenarios with framed sample traffic, bounds and ordering tests, and bounded memory input sets.",
+  "review_model": {
+    "terms": [
+      "budget pressure",
+      "failure width",
+      "recovery gap",
+      "runbook drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "budget pressure",
+      "signal": 41,
+      "slack": 21,
+      "drag": 28,
+      "confidence": 74,
+      "score": 93,
+      "lane": "hold"
+    },
+    {
+      "name": "stress",
+      "focus": "failure width",
+      "signal": 58,
+      "slack": 39,
+      "drag": 17,
+      "confidence": 64,
+      "score": 168,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "recovery gap",
+      "signal": 68,
+      "slack": 47,
+      "drag": 12,
+      "confidence": 49,
+      "score": 196,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "runbook drift",
+      "signal": 51,
+      "slack": 30,
+      "drag": 28,
+      "confidence": 58,
+      "score": 106,
+      "lane": "watch"
+    },
+    {
+      "name": "stale",
+      "focus": "budget pressure",
+      "signal": 77,
+      "slack": 33,
+      "drag": 27,
+      "confidence": 85,
+      "score": 191,
+      "lane": "ship"
+    }
+  ]
+}

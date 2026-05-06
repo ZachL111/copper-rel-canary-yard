@@ -59,3 +59,5 @@ foreach ($pathPattern in $knownPaths) {
 }
 
 forge test
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-copper-rel-canary-detail.ps1
